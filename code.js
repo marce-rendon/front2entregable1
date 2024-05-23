@@ -84,7 +84,35 @@ function renderizarDatosUsuario() {
 
 function recorrerListadoYRenderizarTarjetas() {
   /* ------------------ PUNTO 3: Escribe tu codigo desde aqui ------------------ */
-  
+
+  const fila = document.querySelector("#fila");
+
+  if (fila.hasChildNodes()) {
+    console.log("Las tarjetas ya están renderizadas");
+    return;
+  }
+
+  listado.forEach((materia) => {
+    const tarjeta = document.createElement("div");
+    tarjeta.classList.add("caja");
+
+    const imagen = document.createElement("img");
+    imagen.src = materia.imgUrl;
+    imagen.alt = `Imagen representativa de ${materia.lenguajes}`;
+    tarjeta.appendChild(imagen);
+
+    const lenguajes = document.createElement("p");
+    lenguajes.classList.add("lenguajes");
+    lenguajes.textContent = materia.lenguajes;
+    tarjeta.appendChild(lenguajes);
+
+    const bimestre = document.createElement("p");
+    bimestre.classList.add("bimestre");
+    bimestre.textContent = materia.bimestre;
+    tarjeta.appendChild(bimestre);
+
+    fila.appendChild(tarjeta);
+  });
 }
 
 function alternarColorTema() {
