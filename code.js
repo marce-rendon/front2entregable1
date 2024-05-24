@@ -116,7 +116,14 @@ function recorrerListadoYRenderizarTarjetas() {
 }
 
 function alternarColorTema() {
-  /* --------------------- PUNTO 4: Escribe tu codigo aqui --------------------- */
+  const sitio = document.querySelector("#sitio");
+  sitio.classList.toggle("dark");
 }
 
 /* --------------------- PUNTO 5: Escribe tu codigo aqui --------------------- */
+document.addEventListener("keydown", function (event) {
+  if (event.key === "F" || event.key === "f") {
+    const sobreMiParrafo = document.querySelector("#sobre-mi");
+    sobreMiParrafo.classList.remove("oculto");
+  }
+});
